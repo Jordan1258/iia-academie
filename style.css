@@ -53,10 +53,20 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 0px 0;
 }
 
 .logo img {
     height: 50px;
+    transition: all 0.3s ease;
+}
+
+header.scrolled .logo img {
+    height: 30px;
 }
 
 .nav-first {
@@ -89,10 +99,26 @@ nav {
     font-weight: bold;
     font-size: 15px;
     transition: 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: #0A66C2;
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: #0A66C2;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 /* HERO */
@@ -468,10 +494,6 @@ footer {
         font-size: 2.5rem;
     }
 
-    .nav-links {
-        display: none;
-    }
-
 }
 
 @media (max-width: 992px) {
@@ -528,6 +550,12 @@ footer {
     .hero-content {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+
+    .countdown-wrapper{
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     .hero-text h1 {
