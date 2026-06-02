@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comité de pilotage</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="certification.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="methodologie.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+
+    <header>
+        <div class="container-header">
+            <nav>
+
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://iiardcongo.org/img/IIA.png" alt="">
+                    </a>
+                </div>
+
+                <button class="menu-toggle">
+                    ☰
+                </button>
+
+                <div class="nav-links">
+
+                    <a href="index.html">Accueil</a>
+
+                    <a href="objectif.html">
+                        Nos objectifs
+                    </a>
+
+                    <div class="dropdown">
+
+                        <button class="dropdown-toggle">
+
+                            Mise en œuvre du programme
+
+                            <span class="arrow">▼</span>
+
+                        </button>
+
+                        <div class="dropdown-menu">
+
+                            <a href="methodologie.html">
+                                Activités clés et méthodologie
+                            </a>
+
+                            <a href="disposition.html">
+                                Dispositions logistiques et financières
+                            </a>
+
+                            <a href="suivi.html">
+                                Suivi, évaluation et indicateurs
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <a href="partenariat.html">
+                        Partenariats
+                    </a>
+
+                    <a href="index.html#inscription">
+                        Inscription
+                    </a>
+
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+
+    <section class="certif-hero">
+        <div class="container">
+            <div class="certif-content">
+                <div class="hero-text">
+                    <h1>
+                        Un comité de pilotage expérimenté
+                    </h1>
+
+                    <p>
+                        Un comité de pilotage organisé de l'IIA Congo, des représentants des universités/instituts
+                        partenaires, des enseignants impliqués dans le programme, des représentants de l'IIA Global (à
+                        titre consultatif).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+
+    <section class="certifications-section">
+
+        <div class="container">
+
+            <div class="other-certifications">
+
+                <h3>
+                    Roles du comité de pilotage
+                </h3>
+
+                <p>
+                    Le comité de pilotage aura pour role :
+                </p>
+
+                <ul class="timeline-list">
+
+                    <li>
+                        Valider les orientations stratégiques du programme;
+                    </li>
+
+                    <li>
+                        Approuver les plans annuels de travail;
+                    </li>
+
+                    <li>
+                        Suivre l'avancement des activités et des résultats;
+                    </li>
+
+                    <li>
+                        Examiner les rapports de suivi-évaluation;
+                    </li>
+
+                    <li>
+                        Proposer des ajustements et des améliorations;
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-logo">
+
+                    <img src="https://iiardcongo.org/img/IIA.png" alt="IIA Congo">
+
+                </div>
+
+                <div class="footer-links">
+
+                    <div class="footer-column">
+
+                        <a href="partenaires.html">Nos partenaires</a>
+                        <a href="certification.html">Certifications</a>
+                        <a href="">Activités clés</a>
+
+                    </div>
+
+                    <div class="footer-column">
+
+                        <a href="https://iiardcongo.org/index.php">IIA RDCongo</a>
+                        <a href="https://www.theiia.org/en/">IIA Global</a>
+
+                    </div>
+
+                    <div class="footer-column">
+
+                        <a href="mailto:contact@iiaacademie.org">
+                            iia.academie@iiardcongo.org
+                        </a>
+
+                        <a href="tel:+243000000000">
+                            +243 999 982 565
+                        </a>
+
+                        <a href="tel:+243000000000">
+                            +243 816 419 427
+                        </a>
+
+                        <a href="#">
+                            59, avenue Mont Virunga, commune de la Gombe - Kinshasa
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Jordan Ombilingo — Tous droits réservés
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script>
+        window.addEventListener("scroll", () => {
+
+            const header = document.querySelector("header");
+
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+        });
+    </script>
+
+    <script>
+
+        const dropdown = document.querySelector(".dropdown");
+        const dropdownToggle = document.querySelector(".dropdown-toggle");
+
+        dropdownToggle.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            dropdown.classList.toggle("active");
+
+        });
+
+        document.addEventListener("click", function () {
+
+            dropdown.classList.remove("active");
+
+        });
+
+    </script>
+</body>
+
+</html>

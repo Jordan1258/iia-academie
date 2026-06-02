@@ -40,13 +40,59 @@
             <nav>
 
                 <div class="logo">
-                    <img src="https://iiardcongo.org/img/IIA.png" alt="" srcset="">
+                    <a href="index.html">
+                        <img src="https://iiardcongo.org/img/IIA.png" alt="">
+                    </a>
                 </div>
 
+                <button class="menu-toggle">
+                    ☰
+                </button>
+
                 <div class="nav-links">
-                    <a href="#">Accueil</a>
-                    <a href="#programme">Programme</a>
-                    <a href="#inscription">Inscription</a>
+
+                    <a href="index.html">Accueil</a>
+
+                    <a href="objectif.html">
+                        Nos objectifs
+                    </a>
+
+                    <div class="dropdown">
+
+                        <button class="dropdown-toggle">
+
+                            Mise en œuvre du programme
+
+                            <span class="arrow">▼</span>
+
+                        </button>
+
+                        <div class="dropdown-menu">
+
+                            <a href="methodologie.html">
+                                Activités clés et méthodologie
+                            </a>
+
+                            <a href="disposition.html">
+                                Dispositions logistiques et financières
+                            </a>
+
+                            <a href="suivi.html">
+                                Suivi, évaluation et indicateurs
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <a href="partenariat.html">
+                        Partenariats
+                    </a>
+
+                    <a href="#inscription">
+                        Inscription
+                    </a>
+
                 </div>
 
             </nav>
@@ -418,11 +464,68 @@
 
     <!-- FOOTER -->
 
-    <footer>
+    <footer class="footer">
 
-        <p>
-            © 2026 JordanOmbilingo — Tous droits réservés
-        </p>
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-logo">
+
+                    <img src="https://iiardcongo.org/img/IIA.png" alt="IIA Congo">
+
+                </div>
+
+                <div class="footer-links">
+
+                    <div class="footer-column">
+
+                        <a href="partenaires.html">Nos partenaires</a>
+                        <a href="certification.html">Certifications</a>
+                        <a href="comite.html">Comité de pilotage</a>
+
+                    </div>
+
+                    <div class="footer-column">
+
+                        <a href="https://iiardcongo.org/index.php">IIA RDCongo</a>
+                        <a href="https://www.theiia.org/en/">IIA Global</a>
+
+                    </div>
+
+                    <div class="footer-column">
+
+                        <a href="mailto:iia.academie@iiardcongo.org">
+                            iia.academie@iiardcongo.org
+                        </a>
+
+                        <span>
+                            +243 999 982 565
+                        </span>
+
+                        <span>
+                            +243 816 419 427
+                        </span>
+
+                        <span>
+                            59, avenue Mont Virunga, commune de la Gombe - Kinshasa
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Jordan Ombilingo — Tous droits réservés
+                </p>
+
+            </div>
+
+        </div>
 
     </footer>
 
@@ -524,6 +627,46 @@
             }
 
         });
+    </script>
+
+    <script>
+
+        const dropdown = document.querySelector(".dropdown");
+        const toggle = document.querySelector(".dropdown-toggle");
+
+        toggle.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            dropdown.classList.toggle("active");
+
+        });
+
+        document.addEventListener("click", function () {
+
+            dropdown.classList.remove("active");
+
+        });
+
+    </script>
+
+    <script>
+
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuToggle.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+            if (navLinks.classList.contains("active")) {
+                menuToggle.innerHTML = "✕";
+            } else {
+                menuToggle.innerHTML = "☰";
+            }
+
+        });
+
     </script>
 
 </body>
