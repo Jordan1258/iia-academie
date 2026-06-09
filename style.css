@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+/* État initial de l'élément (masqué et décalé vers le bas) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    will-change: opacity, transform; /* Optimisation des performances */
+}
+
+/* État final de l'élément (visible et à sa place d'origine) */
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: #ffffff;
@@ -512,28 +526,163 @@ section {
     object-fit: cover;
 }
 
-/* PROGRAMME */
+/* ===========================
+   PROGRAMME - DESIGN TABS
+   =========================== */
 
 .program {
-    background: #e9eaec;
-    padding: 20px;
+    background: #fafafa;
+    padding: 20px 0px 50px 0;
 }
 
-.program-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.program-item {
-    background: #fff;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-.program-item h3 {
+.program-tag {
+    display: inline-block;
+    background: rgba(0, 97, 152, 0.08);
     color: #006198;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     margin-bottom: 15px;
+}
+
+/* Container en Grille Split (Boutons à gauche / Contenu à droite) */
+.tabs-wrapper {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 50px;
+    margin-top: 40px;
+    align-items: start;
+}
+
+/* Menu de navigation des Onglets */
+.tabs-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Style de base d'un bouton d'onglet */
+.tab-link {
+    background: transparent;
+    border: none;
+    padding: 16px 20px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.25s ease;
+}
+
+/* Chiffre indicateur dans le bouton */
+.tab-num {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #9ca3af;
+    background: #f3f4f6;
+    padding: 3px 8px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+/* Effets Hover & Actif sur les onglets */
+.tab-link:hover {
+    color: #006198;
+    background: #f1f5f9;
+}
+
+.tab-link.active {
+    color: #003B71;
+    background: #eef5fc;
+}
+
+.tab-link.active .tab-num {
+    color: #ffffff;
+    background: #006198;
+}
+
+/* Zone de affichage du texte à droite */
+.tabs-content {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    min-height: 320px;
+}
+
+/* Panneaux de contenu masqués par défaut */
+.tab-panel {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Panneau actif (Déploiement fluide) */
+.tab-panel.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.panel-badge {
+    display: inline-block;
+    color: #97D700; /* Le vert accent de votre charte */
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.tabs-content h3 {
+    color: #003B71;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.tabs-content p {
+    color: #4b5563;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.tabs-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* RESPONSIVE TAILORING (S'adapte parfaitement aux mobiles) */
+@media (max-width: 900px) {
+    .tabs-wrapper {
+        grid-template-columns: 1fr; /* Passe sur une seule colonne */
+        gap: 30px;
+    }
+
+    .tabs-menu {
+        flex-direction: row; /* Aligne les onglets horizontalement */
+        overflow-x: auto; /* Permet le swipe horizontal */
+        padding-bottom: 8px;
+        white-space: nowrap;
+    }
+
+    .tab-link {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+
+    .tabs-content {
+        padding: 30px 20px;
+    }
 }
 
 /* FORMULAIRE */

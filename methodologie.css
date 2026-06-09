@@ -1,79 +1,528 @@
-.phase-block {
-    padding: 10px 0;
-    border-bottom: 1px solid #e5e7eb;
+.phases-deck-section {
+    background: #ffffff;
+    padding: 100px 0;
 }
 
-.phase-block:last-child {
-    border-bottom: none;
-}
-
-.phase-block h3 {
-    color: #020e4d;
-    font-size: 1.5rem;
-}
-
-.phase-content{
+/* Grille principale asymétrique (Images fixes / Texte défilant) */
+.deck-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0px;
+    grid-template-columns: 1.1fr 1.4fr;
+    gap: 70px;
+    align-items: flex-start; /* Aligne le haut des deux blocs */
 }
 
-.phase-content h4 {
-    color: #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-weight: 500;
-    font-size: 20px;
+/* =========================================
+   GAUCHE : LE VISUEL JEU DE CARTES MODIFIÉ
+   ========================================= */
+
+.deck-visual {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: sticky; /* Reste visible pendant le scroll si nécessaire */
 }
 
-.phase-content p {
-    color: #000000;
-    max-width: 1000px;
-}
-
-.phase-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-.phase-list li {
+.card-stack {
     position: relative;
-    padding-left: 28px;
-    margin-bottom: 18px;
-    line-height: 1.9;
+    width: 100%;
+    height: 620px; /* Définit la hauteur stricte de référence */
+}
+
+/* Image principale (Nettement plus grande) */
+.card-main {
+    position: absolute;
+    width: 90%; 
+    height: 90%;
+    right: 18%;
+    top: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    z-index: 1;
+    margin-top: 15px;
+    transform: rotate(-10deg);
+}
+
+/* Image secondaire (Plus petite, dépasse avec décalage asymétrique) */
+.card-overlap {
+    position: absolute;
+    width: 100%; /* Plus petite que l'image principale */
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-stack img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Interaction élégante au survol */
+.deck-visual:hover .card-overlap {
+    transform: translate(-10px, -10px) scale(1.03);
+}
+
+/* =========================================
+   DROITE : ZONE DE TEXTE ET SCROLL INTERNE
+   ========================================= */
+
+.deck-content {
+    display: flex;
+    flex-direction: column;
+    height: 620px; /* Strictement calé sur la hauteur du jeu de cartes */
+}
+
+.content-header {
+    margin-bottom: 25px;
+}
+
+.content-tag {
+    display: inline-block;
+    color: #97D700;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+}
+
+.content-header h2 {
+    font-size: 2.4rem;
+    color: #003B71;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+/* ZONE DÉFILANTE VERTIKALE ET FINE */
+.phases-scroll-area {
+    flex: 1;
+    overflow-y: auto; /* Active le défilement uniquement ici */
+    padding-right: 15px;
+    scrollbar-width: thin; /* Barre discrète sur Firefox */
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* Personnalisation de la barre de scroll pour Chrome/Safari */
+.phases-scroll-area::-webkit-scrollbar {
+    width: 5px;
+}
+
+.phases-scroll-area::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.phases-scroll-area::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+/* ITEM DE PHASE SÉPARÉ (STRUCTURE EN BLOC HORIZONTAL) */
+.phase-compact-item {
+    padding: 20px 0;
+    border-top: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.phase-compact-item:last-child {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Aligne l'icône à gauche du bloc textuel complet */
+.phase-meta {
+    display: flex;
+    align-items: flex-start; /* Aligne l'icône sur le haut du titre */
+    gap: 20px;
+}
+
+/* Conteneur d'icône fluide */
+.phase-icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(0, 97, 152, 0.06);
+    color: #006198;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Empêche l'icône de se déformer */
+    transition: all 0.3s ease;
+}
+
+.phase-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.phase-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.phase-compact-item h3 {
+    font-size: 1.15rem;
+    color: #003B71;
+    font-weight: 700;
+    margin: 0 0 6px 0; /* Espace sous le titre avant la description */
+}
+
+/* Description placée sous le titre */
+.phase-text-group p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Effets au survol d'un élément */
+.phase-compact-item:hover {
+    padding-left: 8px;
+}
+
+.phase-compact-item:hover .phase-icon {
+    background: #97D700;
+    color: #003B71;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (DESACTIVATION SCROLL MOBILE)
+   ========================================= */
+
+@media (max-width: 900px) {
+    .deck-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .deck-visual {
+        order: -1;
+        position: relative;
+        top: 0;
+    }
+
+    .card-stack {
+        height: 420px;
+    }
+
+    .deck-content {
+        height: auto; /* Libère la contrainte de hauteur sur mobile */
+    }
+
+    .phases-scroll-area {
+        overflow-y: visible; /* Désactive le scroll imbriqué sur mobile */
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .card-stack {
+        height: 320px;
+    }
+    
+    .content-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==================================
+TIMELINE PROGRAMME
+================================== */
+
+.timeline-section {
+    padding: 20px 0;
+    background: #f8fafc;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #006198;
+    border-radius: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 90px;
+    margin-bottom: 50px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 18px;
+    top: 10px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #97D700;
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 0 4px #006198;
+}
+
+.timeline-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+    transition: .3s;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-content span {
+    display: inline-block;
+    background: #003B71;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 15px;
+
+}
+
+.timeline-content h3 {
+    color: #006198;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.timeline-content p {
     color: #4b5563;
 }
 
-.phase-list li::before {
+.timeline-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.timeline-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 14px;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+.timeline-list li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 12px;
+    top: 11px;
+
     width: 8px;
     height: 8px;
+
     background: #97D700;
     border-radius: 50%;
 }
 
-.phase-list strong {
+/* MOBILE */
+
+@media(max-width:768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 60px;
+    }
+
+    .timeline-dot {
+        left: 8px;
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+}
+
+/* =========================================
+   DROITE : ZONE DE TEXTE ET SCROLL INTERNE
+   ========================================= */
+
+.deck-content {
+    display: flex;
+    flex-direction: column;
+    height: 620px; /* Strictement calé sur la hauteur du jeu de cartes */
+}
+
+.content-header {
+    margin-bottom: 25px;
+}
+
+.content-tag {
+    display: inline-block;
+    color: #97D700;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+}
+
+.content-header h2 {
+    font-size: 2.4rem;
+    color: #003B71;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+/* ZONE DÉFILANTE VERTIKALE ET FINE */
+.phases-scroll-area {
+    flex: 1;
+    overflow-y: auto; /* Active le défilement uniquement ici */
+    padding-right: 15px;
+    scrollbar-width: thin; /* Barre discrète sur Firefox */
+    scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+/* Personnalisation de la barre de scroll pour Chrome/Safari */
+.phases-scroll-area::-webkit-scrollbar {
+    width: 5px;
+}
+
+.phases-scroll-area::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.phases-scroll-area::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+/* ITEM DE PHASE SÉPARÉ (STRUCTURE EN BLOC HORIZONTAL) */
+.phase-compact-item {
+    padding: 20px 0;
+    border-top: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.phase-compact-item:last-child {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Aligne l'icône à gauche du bloc textuel complet */
+.phase-meta {
+    display: flex;
+    align-items: flex-start; /* Aligne l'icône sur le haut du titre */
+    gap: 20px;
+}
+
+/* Conteneur d'icône fluide */
+.phase-icon {
+    width: 38px;
+    height: 38px;
+    background: rgba(0, 97, 152, 0.06);
+    color: #006198;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Empêche l'icône de se déformer */
+    transition: all 0.3s ease;
+}
+
+.phase-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.phase-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.phase-compact-item h3 {
+    font-size: 1.15rem;
     color: #003B71;
     font-weight: 700;
+    margin: 0 0 6px 0; /* Espace sous le titre avant la description */
 }
 
-.phase-block {
-    padding: 50px 0;
-    border-bottom: 1px solid #e5e7eb;
+/* Description placée sous le titre */
+.phase-text-group p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
 }
 
-.phase-block:last-child {
-    border-bottom: none;
+/* Effets au survol d'un élément */
+.phase-compact-item:hover {
+    padding-left: 8px;
 }
 
-.phase-block h3 {
-    color: #006198;
-    font-size: 1.5rem;
-    margin-bottom: 1px;
+.phase-compact-item:hover .phase-icon {
+    background: #97D700;
+    color: #003B71;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (DESACTIVATION SCROLL MOBILE)
+   ========================================= */
+
+@media (max-width: 900px) {
+    .deck-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .deck-visual {
+        order: -1;
+        position: relative;
+        top: 0;
+    }
+
+    .card-stack {
+        height: 420px;
+    }
+
+    .deck-content {
+        height: auto; /* Libère la contrainte de hauteur sur mobile */
+    }
+
+    .phases-scroll-area {
+        overflow-y: visible; /* Désactive le scroll imbriqué sur mobile */
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .card-stack {
+        height: 320px;
+    }
+    
+    .content-header h2 {
+        font-size: 1.8rem;
+    }
 }
 
 /* ==================================

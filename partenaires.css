@@ -1,37 +1,76 @@
-.partner-hero {
-    padding: 80px 0 40px;
-    background-color: #e9eaec;
+/* =========================================
+   CONTAINERS SIMPLES POUR PARTENAIRES
+   ========================================= */
+
+.simple-partners-section {
+    padding: 60px 0;
+    background-color: #f9fafb; /* Fond très légèrement grisé pour détacher les cartes */
 }
 
-.partner-hero h1 {
-    font-size: 3rem;
-    color: #006198;
+/* Grille alignée sur 3 colonnes */
+.partners-simple-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch; /* Même hauteur pour toutes les cartes */
+}
+
+/* Structure de la carte simple */
+.simple-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Ombre très légère */
+}
+
+/* Zone du logo en haut de la carte */
+.card-logo {
     margin-bottom: 20px;
-}
-
-.partner-card {
-    text-align: center;
-}
-
-.partner-logo {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background: #006198;
-    color: white;
+    height: 100px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 0 auto 25px;
-    font-weight: bold;
-    font-size: 0.9rem;
+    justify-content: flex-start; /* Aligné à gauche, juste au-dessus du titre */
 }
 
-.partner-card h3 {
-    margin-bottom: 15px;
-    color: #006198;
+.card-logo img {
+    max-height: 50px;
+    max-width: 100%;
+    object-fit: contain;
 }
 
-.partner-card:hover {
-    transform: translateY(-8px);
+/* Titre de la carte */
+.simple-card h3 {
+    font-size: 1.25rem;
+    color: #003B71;
+    margin: 0 0 19px 0;
+    font-weight: 700;
+}
+
+/* Texte de description */
+.simple-card p {
+    font-size: 0.92rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN SIMPLIFIÉ
+   ========================================= */
+
+@media (max-width: 991px) {
+    .partners-simple-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+    }
+}
+
+@media (max-width: 640px) {
+    .partners-simple-grid {
+        grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+        gap: 16px;
+    }
+    
+    .simple-card {
+        padding: 20px;
+    }
 }

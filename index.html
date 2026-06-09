@@ -33,12 +33,10 @@
         </div>
     </div>
 
-    <header>
+    <header class="reveal">
 
         <div class="container-header">
-
             <nav>
-
                 <div class="logo">
                     <a href="index.html">
                         <img src="https://iiardcongo.org/img/IIA.png" alt="">
@@ -103,7 +101,7 @@
 
     <!-- HERO -->
 
-    <section class="hero">
+    <section class="hero reveal">
 
         <div class="container">
 
@@ -211,7 +209,7 @@
 
     <!-- AVANTAGES -->
 
-    <section>
+    <section class="reveal">
 
         <div class="container">
 
@@ -308,105 +306,100 @@
 
     </section>
 
-    <!-- PROGRAMME -->
-
-    <section class="program" id="programme">
+    <!-- PROGRAMME - ONGLETS INTERACTIFS (TABS) -->
+    <section class="program reveal" id="programme">
 
         <div class="container">
 
             <div class="section-title">
-
-                <h2>
-                    Programme de formation
-                </h2>
-
-                <p>
-                    Un parcours complet alliant théorie, pratique et accompagnement pour développer des compétences
-                    solides en audit interne et en gestion des risques.
-                </p>
-
+                <span class="program-tag">Le Cursus</span>
+                <h2>Explorez le programme par module</h2>
+                <p>Cliquez sur chaque onglet pour découvrir le détail et les objectifs de la phase de formation.</p>
             </div>
 
-            <div class="program-list">
-
-                <div class="program-item">
-
-                    <h3>
-                        Cours théoriques renforcés
-                    </h3>
-
-                    <p>
-                        Cette phase permet aux participants d’acquérir une compréhension approfondie
-                        des principes fondamentaux de l’audit interne. Les différents modules abordent les normes
-                        professionnelles internationales, les référentiels de contrôle interne, la gouvernance
-                        d’entreprise
-                        ainsi que le rôle stratégique de l’auditeur dans l’amélioration de la performance
-                        organisationnelle.
-                    </p>
-
+            <div class="tabs-wrapper">
+                
+                <!-- Les Onglets (Navigation) -->
+                <div class="tabs-menu">
+                    <button class="tab-link active" onclick="openModule(event, 'mod-1')">
+                        <span class="tab-num">01</span> Cours théoriques
+                    </button>
+                    <button class="tab-link" onclick="openModule(event, 'mod-2')">
+                        <span class="tab-num">02</span> Études de cas
+                    </button>
+                    <button class="tab-link" onclick="openModule(event, 'mod-3')">
+                        <span class="tab-num">03</span> Simulations réelles
+                    </button>
+                    <button class="tab-link" onclick="openModule(event, 'mod-4')">
+                        <span class="tab-num">04</span> Éthique & Déontologie
+                    </button>
+                    <button class="tab-link" onclick="openModule(event, 'mod-5')">
+                        <span class="tab-num">05</span> Certifications
+                    </button>
                 </div>
 
-                <div class="program-item">
+                <!-- Le Contenu des Onglets -->
+                <div class="tabs-content">
+                    
+                    <!-- Contenu Module 1 -->
+                    <div id="mod-1" class="tab-panel active">
+                        <span class="panel-badge">Immersion Fondamentale</span>
+                        <h3>Cours théoriques renforcés</h3>
+                        <p>
+                            Cette phase permet aux participants d’acquérir une compréhension approfondie des principes fondamentaux de l’audit interne.
+                        </p>
+                        <p>
+                            Les différents modules abordent les normes professionnelles internationales (IPPF), les référentiels de contrôle interne, la gouvernance d’entreprise ainsi que le rôle stratégique de l’auditeur dans l’amélioration de la performance organisationnelle.
+                        </p>
+                    </div>
 
-                    <h3>
-                        Études de cas pratiques
-                    </h3>
+                    <!-- Contenu Module 2 -->
+                    <div id="mod-2" class="tab-panel">
+                        <span class="panel-badge">Cas Pratiques</span>
+                        <h3>Études de cas concrètes</h3>
+                        <p>
+                            Les participants analysent des situations réelles inspirées directement du monde professionnel et du quotidien des entreprises modernes.
+                        </p>
+                        <p>
+                            Cette approche analytique permet de développer votre capacité à identifier les risques, évaluer l’efficacité des dispositifs de contrôle et formuler des recommandations pertinentes et applicables sur le terrain.
+                        </p>
+                    </div>
 
-                    <p>
-                        Les participants analysent des situations réelles inspirées du monde
-                        professionnel afin de développer leur capacité à identifier les risques,
-                        évaluer l’efficacité des dispositifs de contrôle et proposer des recommandations pertinentes.
-                        Cette approche favorise l'acquisition de réflexes méthodologiques indispensables à la pratique
-                        de l'audit.
-                    </p>
+                    <!-- Contenu Module 3 -->
+                    <div id="mod-3" class="tab-panel">
+                        <span class="panel-badge">Mise en Situation</span>
+                        <h3>Simulations de missions d'audit</h3>
+                        <p>
+                            À travers des exercices pratiques et des simulations immersives, les apprenants sont amenés à conduire une mission d’audit de bout en bout.
+                        </p>
+                        <p>
+                            Vous apprendrez concrètement à préparer un plan de mission, réaliser des tests de contrôle rigoureux, collecter des preuves d’audit, formuler des constats clairs et rédiger des rapports professionnels conformes aux exigences du métier.
+                        </p>
+                    </div>
 
-                </div>
+                    <!-- Contenu Module 4 -->
+                    <div id="mod-4" class="tab-panel">
+                        <span class="panel-badge">Posture Professionnelle</span>
+                        <h3>Ateliers sur l'éthique et la déontologie</h3>
+                        <p>
+                            L’audit interne repose sur des valeurs cardinales incontournables : l’intégrité, l’objectivité, la confidentialité et la compétence professionnelle.
+                        </p>
+                        <p>
+                            Ces ateliers interactifs permettent d’examiner les enjeux et dilemmes éthiques auxquels les auditeurs font face afin d’adopter les comportements de rigueur attendus dans l'exercice de leurs fonctions.
+                        </p>
+                    </div>
 
-                <div class="program-item">
-
-                    <h3>
-                        Simulations de missions d'audit
-                    </h3>
-
-                    <p>
-                        À travers des exercices pratiques et des mises en situation,
-                        les apprenants sont amenés à conduire une mission d’audit de bout en bout.
-                        Ils apprennent à préparer un plan de mission, réaliser des tests de contrôle,
-                        collecter des preuves d’audit, formuler des constats et rédiger des rapports
-                        professionnels conformes aux exigences du métier.
-                    </p>
-
-                </div>
-
-                <div class="program-item">
-
-                    <h3>
-                        Ateliers sur l'éthique et la déontologie
-                    </h3>
-
-                    <p>
-                        L’audit interne repose sur des valeurs fondamentales telles que l’intégrité,
-                        l’objectivité, la confidentialité et la compétence professionnelle.
-                        Ces ateliers permettent aux participants d’examiner les enjeux éthiques auxquels
-                        les auditeurs sont confrontés et de développer les comportements attendus dans l’exercice
-                        de leurs responsabilités professionnelles.
-                    </p>
-
-                </div>
-
-                <div class="program-item">
-
-                    <h3>
-                        Préparation aux examens et certifications
-                    </h3>
-
-                    <p>
-                        Des séances de révision, des évaluations pratiques et
-                        des simulations d’examens sont organisées afin de préparer efficacement les participants
-                        aux différentes certifications et évaluations professionnelles.
-                        Un accompagnement personnalisé est également proposé pour renforcer
-                        les points d’amélioration et maximiser les chances de réussite.
-                    </p>
+                    <!-- Contenu Module 5 -->
+                    <div id="mod-5" class="tab-panel">
+                        <span class="panel-badge">Validation du Cursus</span>
+                        <h3>Préparation aux examens et certifications</h3>
+                        <p>
+                            Des séances de révision ciblées, des évaluations pratiques régulières et des simulations d’examens blancs sont organisées pour maximiser vos chances.
+                        </p>
+                        <p>
+                            Cet accompagnement sur-mesure prépare efficacement les participants aux exigences des différentes certifications internationales de référence (CIA, CRMA, etc.) reconnues par les employeurs.
+                        </p>
+                    </div>
 
                 </div>
 
@@ -418,7 +411,7 @@
 
     <!-- FORMULAIRE -->
 
-    <section class="form-section" id="inscription">
+    <section class="form-section reveal" id="inscription">
 
         <div class="container">
 
@@ -668,6 +661,56 @@
         });
 
     </script>
+
+    <script>
+    function openModule(event, panelId) {
+        // 1. On retire la classe 'active' de tous les boutons d'onglets
+        const links = document.querySelectorAll('.tab-link');
+        links.forEach(link => link.classList.remove('active'));
+
+        // 2. On cache tous les panneaux de texte
+        const panels = document.querySelectorAll('.tab-panel');
+        panels.forEach(panel => panel.classList.remove('active'));
+
+        // 3. On active le bouton cliqué
+        event.currentTarget.classList.add('active');
+        
+        // 4. On affiche le panneau correspondant avec l'ID
+        const targetPanel = document.getElementById(panelId);
+        targetPanel.classList.add('active');
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // 1. On sélectionne tous les éléments qui possèdent la classe 'reveal'
+        const reveals = document.querySelectorAll(".reveal");
+
+        // 2. Configuration de l'Intersection Observer
+        const observerOptions = {
+            root: null,         // Utilise la fenêtre du navigateur (viewport)
+            rootMargin: "0px",  // Pas de marge externe
+            threshold: 0.15     // Déclenche l'effet quand 15% de l'élément est visible
+        };
+
+        // 3. Création de l'observateur
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Si l'élément entre dans l'écran
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("reveal-visible");
+                    // Optionnel : on arrête d'observer l'élément une fois apparu
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        // 4. On applique l'observateur à chaque élément sélectionné
+        reveals.forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
 
 </body>
 

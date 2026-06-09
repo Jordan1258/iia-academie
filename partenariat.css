@@ -1,0 +1,158 @@
+/* =========================================
+   MODALITÉS - HISTOIRE DE FOND UNIQUE SUR LE TITRE
+   ========================================= */
+
+.modalities-section-clean {
+    width: 100%;
+    background: #ffffff;
+}
+
+/* 1. BANDEAU DE TITRE UNIQUE AVEC L'IMAGE */
+.modalities-banner {
+    position: relative;
+    width: 100%;
+    padding: 80px 0;
+    /* Image corporative assombrie par un dégradé bleu nuit pour le contraste du texte */
+    background-image: linear-gradient(rgba(0, 59, 113, 0.85), rgba(0, 59, 113, 0.9)), 
+                      url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.banner-text-content {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #ffffff;
+}
+
+/* Le petit badge adapté pour l'arrière-plan foncé */
+.banner-text-content .modalities-tag {
+    display: inline-block;
+    color: #97D700; /* Vert signature */
+    background: rgba(151, 215, 0, 0.12);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.banner-text-content h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 15px 0;
+    letter-spacing: -1px;
+}
+
+.banner-text-content p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* 2. ZONE DU BAS CONTENANT LES CARTES (FOND BLANC STRUCTURÉ) */
+.modalities-body {
+    padding: 60px 0 90px 0;
+    background: #f8fafc; /* Fond gris ultra clair pour détacher les cartes */
+}
+
+.modalities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* Design unitaire des cartes */
+.modality-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animation au survol */
+.modality-card:hover {
+    transform: translateY(-4px);
+    border-color: #006198;
+    box-shadow: 0 20px 25px -5px rgba(0, 59, 113, 0.06);
+}
+
+/* Style de l'icône de la carte */
+.modality-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 97, 152, 0.06);
+    color: #006198;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.modality-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Effet sur l'icône au survol du bloc */
+.modality-card:hover .modality-icon {
+    background: #003B71;
+    color: #97D700;
+}
+
+/* Textes de la modalité */
+.modality-text h3 {
+    font-size: 1.2rem;
+    color: #003B71;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+}
+
+.modality-text p {
+    font-size: 0.92rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (MOBILE & TABLETTE)
+   ========================================= */
+
+@media (max-width: 991px) {
+    .modalities-grid {
+        gap: 20px;
+    }
+    .modality-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modalities-banner {
+        padding: 60px 20px;
+    }
+
+    .banner-text-content h2 {
+        font-size: 2rem;
+    }
+
+    .modalities-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 16px;
+    }
+}
