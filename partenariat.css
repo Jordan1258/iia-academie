@@ -12,7 +12,6 @@
     position: relative;
     width: 100%;
     padding: 80px 0;
-    /* Image corporative assombrie par un dégradé bleu nuit pour le contraste du texte */
     background-image: linear-gradient(rgba(0, 59, 113, 0.85), rgba(0, 59, 113, 0.9)), 
                       url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop');
     background-size: cover;

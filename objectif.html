@@ -107,7 +107,7 @@
 
     <!-- HERO PAGE -->
 
-    <section class="hero">
+    <section class="hero reveal">
 
         <div class="container">
 
@@ -160,7 +160,7 @@
 
     </section>
 
-    <section class="objectif-general">
+    <section class="objectif-general reveal">
         <div class="general-card">
             <div class="general-content">
                 <h2> Certification internationale </h2>
@@ -182,7 +182,7 @@
 
             <!-- OBJECTIF 1 -->
 
-            <div class="objectif-row">
+            <div class="objectif-row reveal">
 
                 <div class="objectif-image">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
@@ -208,7 +208,7 @@
 
             <!-- OBJECTIF 2 -->
 
-            <div class="objectif-row reverse">
+            <div class="objectif-row reverse reveal">
 
                 <div class="objectif-image">
                     <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
@@ -234,7 +234,7 @@
 
             <!-- OBJECTIF 3 -->
 
-            <div class="objectif-row">
+            <div class="objectif-row reveal">
 
                 <div class="objectif-image">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
@@ -260,7 +260,7 @@
 
             <!-- OBJECTIF 4 -->
 
-            <div class="objectif-row reverse">
+            <div class="objectif-row reverse reveal">
 
                 <div class="objectif-image">
                     <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop"
@@ -286,7 +286,7 @@
 
             <!-- OBJECTIF 5 -->
 
-            <div class="objectif-row">
+            <div class="objectif-row reveal">
 
                 <div class="objectif-image">
                     <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop"
@@ -312,7 +312,7 @@
 
             <!-- OBJECTIF 6 -->
 
-            <div class="objectif-row reverse">
+            <div class="objectif-row reverse reveal">
 
                 <div class="objectif-image">
                     <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200&auto=format&fit=crop"
@@ -338,7 +338,7 @@
 
             <!-- OBJECTIF 7 -->
 
-            <div class="objectif-row">
+            <div class="objectif-row reveal">
 
                 <div class="objectif-image">
                     <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200&auto=format&fit=crop"
@@ -366,7 +366,7 @@
 
     </section>
 
-    <section class="resultats resultats-app-bar" id="resultats-impact">
+    <section class="resultats resultats-app-bar reveal" id="resultats-impact">
 
         <div class="container">
 
@@ -480,7 +480,7 @@
 
     <!-- FOOTER -->
 
-    <footer class="footer">
+    <footer class="footer reveal">
 
         <div class="container">
 
@@ -650,6 +650,37 @@
 
         startAutoplay();
     </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // 1. On sélectionne tous les éléments qui possèdent la classe 'reveal'
+        const reveals = document.querySelectorAll(".reveal");
+
+        // 2. Configuration de l'Intersection Observer
+        const observerOptions = {
+            root: null,         // Utilise la fenêtre du navigateur (viewport)
+            rootMargin: "0px",  // Pas de marge externe
+            threshold: 0.15     // Déclenche l'effet quand 15% de l'élément est visible
+        };
+
+        // 3. Création de l'observateur
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Si l'élément entre dans l'écran
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("reveal-visible");
+                    // Optionnel : on arrête d'observer l'élément une fois apparu
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        // 4. On applique l'observateur à chaque élément sélectionné
+        reveals.forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
 
 </body>
 

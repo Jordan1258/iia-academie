@@ -13,9 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="certification.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="methodologie.css">
+    <link rel="stylesheet" href="comite.css" />
 </head>
 
 <body>
@@ -85,73 +84,97 @@
         </div>
     </header>
 
-    <!-- HERO -->
-
-    <section class="certif-hero">
+    <section class="comite-editorial-hero">
         <div class="container">
-            <div class="certif-content">
-                <div class="hero-text">
-                    <h1>
-                        Un comité de pilotage expérimenté
-                    </h1>
-
-                    <p>
-                        Un comité de pilotage organisé de l'IIA Congo, des représentants des universités/instituts
-                        partenaires, des enseignants impliqués dans le programme, des représentants de l'IIA Global (à
-                        titre consultatif).
+            <div class="editorial-grid">
+                
+                <div class="editorial-left">
+                    <span class="editorial-tag">Gouvernance</span>
+                    <h1>Un comité de pilotage expérimenté</h1>
+                    <p class="editorial-lead">
+                        Une instance décisionnelle inclusive associant l'IIA Congo, les représentants des universités, le corps enseignant et l'IIA Global.
                     </p>
                 </div>
+
+                <div class="editorial-right">
+                    <div class="editorial-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="Réunion stratégique comité IIA">
+                        <div class="image-overlay-gradient"></div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
-
-    <section class="certifications-section">
-
+    <section class="roles-editorial-section reveal">
         <div class="container">
+            <div class="roles-editorial-wrapper">
 
-            <div class="other-certifications">
+                <div class="roles-editorial-header">
+                    <h2>Rôles du comité<br> de pilotage</h2>
+                    <div class="header-line"></div>
+                </div>
 
-                <h3>
-                    Roles du comité de pilotage
-                </h3>
+                <div class="roles-editorial-list">
 
-                <p>
-                    Le comité de pilotage aura pour role :
-                </p>
+                    <div class="role-list-item">
+                        <div class="role-meta">
+                            <span class="role-index">01</span>
+                        </div>
+                        <div class="role-detail">
+                            <h3>Orientation Stratégique</h3>
+                            <p>Valider les orientations stratégiques et veiller à la conformité du programme.</p>
+                        </div>
+                    </div>
 
-                <ul class="timeline-list">
+                    <div class="role-list-item">
+                        <div class="role-meta">
+                            <span class="role-index">02</span>
+                        </div>
+                        <div class="role-detail">
+                            <h3>Planification Partenariale</h3>
+                            <p>Approuver les plans annuels de travail ainsi que les budgets alloués.</p>
+                        </div>
+                    </div>
 
-                    <li>
-                        Valider les orientations stratégiques du programme;
-                    </li>
+                    <div class="role-list-item">
+                        <div class="role-meta">
+                            <span class="role-index">03</span>
+                        </div>
+                        <div class="role-detail">
+                            <h3>Suivi Opérationnel</h3>
+                            <p>Suivre rigoureusement l'avancement des activités et mesurer l'atteinte des résultats.</p>
+                        </div>
+                    </div>
 
-                    <li>
-                        Approuver les plans annuels de travail;
-                    </li>
+                    <div class="role-list-item">
+                        <div class="role-meta">
+                            <span class="role-index">04</span>
+                        </div>
+                        <div class="role-detail">
+                            <h3>Évaluation & Performance</h3>
+                            <p>Examiner périodiquement les rapports de suivi-évaluation.</p>
+                        </div>
+                    </div>
 
-                    <li>
-                        Suivre l'avancement des activités et des résultats;
-                    </li>
+                    <div class="role-list-item">
+                        <div class="role-meta">
+                            <span class="role-index">05</span>
+                        </div>
+                        <div class="role-detail">
+                            <h3>Amélioration Continue</h3>
+                            <p>Proposer des ajustements agiles et des améliorations structurelles.</p>
+                        </div>
+                    </div>
 
-                    <li>
-                        Examiner les rapports de suivi-évaluation;
-                    </li>
-
-                    <li>
-                        Proposer des ajustements et des améliorations;
-                    </li>
-
-                </ul>
+                </div>
 
             </div>
-
         </div>
-
     </section>
 
-    <footer class="footer">
+    <footer class="footer reveal">
 
         <div class="container">
 
@@ -250,6 +273,38 @@
         });
 
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. On sélectionne tous les éléments qui possèdent la classe 'reveal'
+            const reveals = document.querySelectorAll(".reveal");
+
+            // 2. Configuration de l'Intersection Observer
+            const observerOptions = {
+                root: null,         // Utilise la fenêtre du navigateur (viewport)
+                rootMargin: "0px",  // Pas de marge externe
+                threshold: 0.15     // Déclenche l'effet quand 15% de l'élément est visible
+            };
+
+            // 3. Création de l'observateur
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Si l'élément entre dans l'écran
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("reveal-visible");
+                        // Optionnel : on arrête d'observer l'élément une fois apparu
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // 4. On applique l'observateur à chaque élément sélectionné
+            reveals.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+    
 </body>
 
 </html>

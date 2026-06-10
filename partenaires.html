@@ -97,7 +97,7 @@
 
   <!-- HERO -->
 
-  <section class="hero">
+  <section class="hero reveal">
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
@@ -151,7 +151,7 @@
 
   <!-- PARTENAIRES -->
 
-  <section class="simple-partners-section">
+  <section class="simple-partners-section reveal">
     <div class="container">
       <div class="section-title">
         <h1>Nos Partenaires</h1>
@@ -164,7 +164,7 @@
         </p>
       </div>
       <div class="partners-simple-grid">
-        
+
         <div class="simple-card">
           <div class="card-logo">
             <img src="https://iiardcongo.org/img/IIA.png" alt="IIA Congo" />
@@ -195,7 +195,8 @@
 
         <div class="simple-card">
           <div class="card-logo">
-            <img src="https://iia.org.sg/Tenant/C0000023/IIA%20Global%20New%20Logo/IIA%20color%20logo.png" alt="IIA Global" />
+            <img src="https://iia.org.sg/Tenant/C0000023/IIA%20Global%20New%20Logo/IIA%20color%20logo.png"
+              alt="IIA Global" />
           </div>
           <h3>IIA Global et partenaires techniques</h3>
           <p>
@@ -211,7 +212,7 @@
     </div>
   </section>
 
-  <footer class="footer">
+  <footer class="footer reveal">
 
     <div class="container">
 
@@ -229,7 +230,7 @@
 
             <a href="partenaires.html">Nos partenaires</a>
             <a href="certification.html">Certifications</a>
-            <a href="">Activités clés</a>
+            <a href="comite.html">Comité de pilotage</a>
 
           </div>
 
@@ -328,6 +329,38 @@
     });
 
   </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // 1. On sélectionne tous les éléments qui possèdent la classe 'reveal'
+      const reveals = document.querySelectorAll(".reveal");
+
+      // 2. Configuration de l'Intersection Observer
+      const observerOptions = {
+        root: null,         // Utilise la fenêtre du navigateur (viewport)
+        rootMargin: "0px",  // Pas de marge externe
+        threshold: 0.15     // Déclenche l'effet quand 15% de l'élément est visible
+      };
+
+      // 3. Création de l'observateur
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          // Si l'élément entre dans l'écran
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-visible");
+            // Optionnel : on arrête d'observer l'élément une fois apparu
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // 4. On applique l'observateur à chaque élément sélectionné
+      reveals.forEach(element => {
+        observer.observe(element);
+      });
+    });
+  </script>
+
 </body>
 
 </html>

@@ -111,7 +111,7 @@
 
     <!-- HERO PAGE -->
 
-    <section class="hero">
+    <section class="hero reveal">
 
         <div class="container">
 
@@ -169,19 +169,25 @@
 
     <!-- PHASES -->
 
-    <section class="indicators-section">
+    <section class="indicators-section reveal">
         <div class="container">
-            
+
             <div class="indicators-header">
                 <h2>Nos indicateurs clés de performance</h2>
-                <p>Un cadre de pilotage structuré pour évaluer en temps réel l'avancement, la qualité et la portée stratégique du programme.</p>
+                <p>Un cadre de pilotage structuré pour évaluer en temps réel l'avancement, la qualité et la portée
+                    stratégique du programme.</p>
             </div>
 
             <div class="indicators-grid">
-                
+
                 <div class="indicator-card">
                     <div class="card-icon-header icon-blue">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
                     </div>
                     <h3>Indicateurs de mise en œuvre</h3>
                     <ul class="indicator-features">
@@ -194,7 +200,11 @@
 
                 <div class="indicator-card">
                     <div class="card-icon-header icon-green">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                     </div>
                     <h3>Indicateurs de résultats</h3>
                     <ul class="indicator-features">
@@ -207,7 +217,10 @@
 
                 <div class="indicator-card">
                     <div class="card-icon-header icon-gold">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
                     </div>
                     <h3>Indicateurs d'impact</h3>
                     <ul class="indicator-features">
@@ -223,7 +236,7 @@
 
     <!-- FOOTER -->
 
-    <footer class="footer">
+    <footer class="footer reveal">
 
         <div class="container">
 
@@ -342,6 +355,37 @@
 
         });
 
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. On sélectionne tous les éléments qui possèdent la classe 'reveal'
+            const reveals = document.querySelectorAll(".reveal");
+
+            // 2. Configuration de l'Intersection Observer
+            const observerOptions = {
+                root: null,         // Utilise la fenêtre du navigateur (viewport)
+                rootMargin: "0px",  // Pas de marge externe
+                threshold: 0.15     // Déclenche l'effet quand 15% de l'élément est visible
+            };
+
+            // 3. Création de l'observateur
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Si l'élément entre dans l'écran
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("reveal-visible");
+                        // Optionnel : on arrête d'observer l'élément une fois apparu
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // 4. On applique l'observateur à chaque élément sélectionné
+            reveals.forEach(element => {
+                observer.observe(element);
+            });
+        });
     </script>
 
 </body>

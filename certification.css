@@ -1,7 +1,10 @@
 .certif-hero{
-    background: #08669c;
+    background-image: linear-gradient(rgba(1, 25, 48, 0.603), rgba(0, 59, 113, 0.9)), 
+                      url('https://images.unsplash.com/photo-1612214495858-4f32b96155a7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNlcnRpZmljYXRpb258ZW58MHx8MHx8fDA%3D');
     color: white;
-    padding: 50px;
+    padding: 80px;
+    background-size: cover;
+    background-position: center;
 }
 
 .certif-content .hero-text h1{

@@ -86,7 +86,7 @@
 
     <!-- HERO -->
 
-    <section class="certif-hero">
+    <section class="certif-hero reveal">
         <div class="container">
             <div class="certif-content">
                 <div class="hero-text">
@@ -107,13 +107,13 @@
 
     <!-- CERTIFICATIONS -->
 
-    <section class="certifications-section">
+    <section class="certifications-section reveal">
 
         <div class="container">
 
             <div class="certifications-box">
 
-                <div class="certification-item">
+                <div class="certification-item reveal">
 
                     <div class="certification-badge">
                         <img src="https://iiam.com.my/wp-content/uploads/2022/03/CIA-Logo-stacked_4c.png" alt=""
@@ -147,7 +147,7 @@
 
                 </div>
 
-                <div class="certification-item">
+                <div class="certification-item reveal">
 
                     <div class="certification-badge">
                         <img src="https://iia.no/wp-content/uploads/2022/02/2019-3153-CERT-CRMA-Logo_4c.png" alt=""
@@ -177,7 +177,7 @@
 
                 </div>
 
-                <div class="other-certifications">
+                <div class="other-certifications reveal">
 
                     <h3>
                         Et bien d'autres certifications...
@@ -206,7 +206,7 @@
 
     </section>
 
-    <footer class="footer">
+    <footer class="footer reveal">
 
         <div class="container">
 
@@ -302,6 +302,59 @@
         });
 
     </script>
+
+    <script>
+
+        const dropdown = document.querySelector(".dropdown");
+        const toggle = document.querySelector(".dropdown-toggle");
+
+        toggle.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            dropdown.classList.toggle("active");
+
+        });
+
+        document.addEventListener("click", function () {
+
+            dropdown.classList.remove("active");
+
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. On sélectionne tous les éléments qui possèdent la classe 'reveal'
+            const reveals = document.querySelectorAll(".reveal");
+
+            // 2. Configuration de l'Intersection Observer
+            const observerOptions = {
+                root: null,         // Utilise la fenêtre du navigateur (viewport)
+                rootMargin: "0px",  // Pas de marge externe
+                threshold: 0.15     // Déclenche l'effet quand 15% de l'élément est visible
+            };
+
+            // 3. Création de l'observateur
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Si l'élément entre dans l'écran
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("reveal-visible");
+                        // Optionnel : on arrête d'observer l'élément une fois apparu
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // 4. On applique l'observateur à chaque élément sélectionné
+            reveals.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
 </body>
 
 </html>

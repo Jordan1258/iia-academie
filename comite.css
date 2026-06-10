@@ -1,0 +1,238 @@
+/* =========================================
+   PAGE COMITÉ - STYLE ÉDITORIAL & GRILLE
+   ========================================= */
+
+.comite-editorial-hero {
+    background-color: #ffffff;
+    padding: 140px 0 100px 0;
+    overflow: hidden;
+}
+
+/* Grille principale asymétrique */
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Colonne texte plus large */
+    gap: 80px;
+    align-items: center;
+}
+
+/* Colonne de gauche (Texte) */
+.editorial-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.editorial-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #97D700; /* Vert signature */
+    margin-bottom: 15px;
+}
+
+.editorial-left h1 {
+    font-size: 3.5rem; /* Typo très grande style magazine */
+    color: #003B71; /* Bleu IIA */
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin: 0 0 25px 0;
+}
+
+.editorial-lead {
+    font-size: 1.25rem; /* Paragraphe d'introduction plus grand */
+    color: #4b5563;
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+/* Colonne de droite (Image d'Impact) */
+.editorial-right {
+    position: relative;
+}
+
+.editorial-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 4px; /* Coins très légèrement arrondis */
+    overflow: hidden;
+    /* Rotation subtile pour casser la grille */
+    transform: rotate(2deg); 
+}
+
+.editorial-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Léger filtre pour l'harmonisation */
+    filter: grayscale(20%) contrast(110%);
+}
+
+/* Voile dégradé subtil sur l'image */
+.image-overlay-gradient {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(0, 59, 113, 0.2), rgba(151, 215, 0, 0.1));
+}
+
+/* =========================================
+   ROLES - STYLE LISTE MINIMALISTE ÉPURÉE
+   ========================================= */
+
+.roles-editorial-section {
+    padding: 100px 0;
+    background-color: #f8fafc; /* Fond gris ultra clair */
+}
+
+.roles-editorial-wrapper {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr; /* Grille asymétrique inverse */
+    gap: 80px;
+}
+
+/* En-tête de la section (À gauche) */
+.roles-editorial-header {
+    position: sticky; /* Reste visible au scroll */
+    top: 120px;
+    align-self: flex-start;
+}
+
+.roles-editorial-header h2 {
+    font-size: 2.2rem;
+    color: #003B71;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 0 0 20px 0;
+}
+
+.header-line {
+    width: 60px;
+    height: 4px;
+    background-color: #97D700;
+}
+
+/* Liste des rôles (À droite, séparée par des lignes) */
+.roles-editorial-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.role-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px 0;
+    border-bottom: 1px solid #e2e8f0; /* Ligne de séparation fine */
+    transition: background-color 0.3s ease;
+}
+
+.role-list-item:first-child {
+    border-top: 1px solid #e2e8f0; /* Ligne supérieure pour le premier item */
+}
+
+/* Effet au survol (Subtil, sans carte) */
+.role-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Métadonnées (Index) */
+.role-meta {
+    display: flex;
+    align-items: center;
+    padding-top: 4px;
+}
+
+.role-index {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #006198; /* Bleu secondaire */
+    font-family: 'Inter', sans-serif;
+    opacity: 0.6;
+}
+
+/* Détails du rôle */
+.role-detail {
+    flex: 1;
+}
+
+.role-detail h3 {
+    font-size: 1.25rem;
+    color: #003B71;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.role-detail p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (GRILLE ÉDITORIALE)
+   ========================================= */
+
+@media (max-width: 1100px) {
+    .editorial-grid, .roles-editorial-wrapper {
+        gap: 40px;
+    }
+    
+    .editorial-left h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .comite-editorial-hero {
+        padding: 100px 20px 60px 20px;
+    }
+
+    /* Passage en colonne unique sur mobile */
+    .editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .editorial-lead {
+        margin: 0 auto;
+    }
+
+    .editorial-image-wrapper {
+        height: 350px;
+        transform: none; /* Désactive la rotation sur mobile */
+    }
+
+    .roles-editorial-section {
+        padding: 60px 0;
+    }
+
+    /* Passage en colonne unique pour la liste */
+    .roles-editorial-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .roles-editorial-header {
+        position: relative;
+        top: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .role-list-item {
+        gap: 15px;
+        padding: 20px 0;
+    }
+    
+    .role-index {
+        font-size: 0.8rem;
+    }
+}
